@@ -1,0 +1,28 @@
+/* Colors */
+@value active: #5da6e2;
+@value dark: #21252b;
+@value background: #282c34;
+@value border: #2f363d;
+@value disabled: #9b9c9e;
+@value white: #ffffff;
+@value selected: #73ab84;
+
+/* sizes */
+@value borderRadiusLg: 20px;
+
+.button {
+  display: inline-block;
+  padding: 10px 13px;
+  color: white;
+  font-weight: normal;
+  font-size: 16px;
+
+  font-family: 'SF Text', sans-serif;
+  font-style: normal;
+  line-height: 14px;
+  text-decoration: none;
+  background: active;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+}

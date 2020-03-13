@@ -1,17 +1,6 @@
 /*
-******** GLOBAL *********
+******** RESET *********
 **/
-:root {
-  /* Active (Primary) */
-  --active: #5da6e2;
-  --dark: #21252b;
-  --background: #282c34;
-  --border: #2f363d;
-  --disabled: #9b9c9e;
-  --white: #ffffff;
-  --selected: #73ab84;
-}
-
 *,
 *::before,
 *::after {
