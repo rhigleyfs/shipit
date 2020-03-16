@@ -1,16 +1,24 @@
 @value brand: '../../brand.module.css';
 @value dark, border, white, disabled, borderRadiusLg from brand;
+@value sideBarWidth from '../sideMenu/sideMenu.module.css';
+
+@value headerPadding: 33px;
 
 .background {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 33px;
+  padding: headerPadding;
   background-color: dark;
   border-bottom: 1px solid border;
   border-radius: borderRadiusLg borderRadiusLg 0 0;
 }
 
+.logo {
+  width: calc(sideBarWidth - headerPadding);
+  max-width: 25%;
+  text-align: center;
+}
 .logoImage {
   width: 28px;
   height: 28px;

@@ -1,8 +1,10 @@
 @value brand: '../../brand.module.css';
 @value dark, border, borderRadiusLg, selected, white, disabled from brand;
 
+@value sideBarWidth: 250px;
+
 .menu {
-  width: 250px;
+  width: sideBarWidth;
   max-width: 25%;
   height: calc(100% - 107px);
   padding: 25px;
