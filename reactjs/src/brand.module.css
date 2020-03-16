@@ -35,3 +35,27 @@
   border: none;
   border-bottom: 2px solid active;
 }
+
+.heading {
+  color: white;
+  font-weight: 600;
+  font-size: 32px;
+  font-family: 'SF Text', sans-serif;
+  line-height: 14px;
+}
+
+.title {
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: 'SF Text', sans-serif;
+  line-height: 14px;
+}
+
+.subTitle {
+  color: disabled;
+  font-weight: normal;
+  font-size: 16px;
+  font-family: 'SF Text', sans-serif;
+  line-height: 14px;
+}

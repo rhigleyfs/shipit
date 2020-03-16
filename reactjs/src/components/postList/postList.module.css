@@ -1,0 +1,56 @@
+@value brand: '../../brand.module.css';
+@value dark, active, border, selected, disabled from brand;
+
+.list {
+  background-color: dark;
+  border: 1px solid border;
+  border-radius: 10px;
+}
+
+.post {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.title {
+  composes: title from brand;
+  width: 100%;
+  height: 1em;
+  margin: 10px 0;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.subTitle {
+  composes: subTitle from brand;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.post :global .tag {
+  margin-right: 5px;
+  color: white;
+  background-color: active;
+}
+
+.meta {
+  color: white;
+}
+
+.meta :global .icon svg {
+  color: active;
+  cursor: pointer;
+}
+.meta :global .icon .is-selected {
+  color: selected;
+  cursor: arrow;
+  pointer-events: none;
+}
+.meta :global .icon .is-disabled {
+  color: disabled;
+  pointer-events: none;
+}
