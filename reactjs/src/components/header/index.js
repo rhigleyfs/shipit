@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {
   Dropdown,
   DropdownTrigger,
@@ -11,6 +11,12 @@ import PropTypes from 'prop-types';
 import styles from './header.module.css';
 
 export default function Header({ loggedIn, user, logout }) {
+  const history = useHistory();
+  const onClickLogout = e => {
+    e.preventDefault();
+    logout();
+    history.push('/');
+  };
   return (
     <header className={styles.background}>
       <div className={styles.logo}>
@@ -61,7 +67,7 @@ export default function Header({ loggedIn, user, logout }) {
                 </Link>
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a
-                  onClick={logout}
+                  onClick={onClickLogout}
                   className="dropdown-item"
                   role="presentation"
                 >
@@ -70,6 +76,17 @@ export default function Header({ loggedIn, user, logout }) {
               </DropdownContent>
             </DropdownMenu>
           </Dropdown>
+        </div>
+      )}
+
+      {!loggedIn && (
+        <div>
+          <Link to="/login" className={styles.navLink}>
+            Login
+          </Link>
+          <Link to="/join" className={styles.navButton}>
+            Join Now
+          </Link>
         </div>
       )}
     </header>

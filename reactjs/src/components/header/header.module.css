@@ -35,6 +35,7 @@
 .searchBarInput {
   width: calc(100% - 35px);
   height: 100%;
+  color: white;
   font-weight: normal;
   font-size: 16px;
   font-family: 'SF Display', sans-serif;
@@ -51,6 +52,11 @@
 
 .navButton {
   composes: button from brand;
+}
+
+.navLink {
+  composes: link from brand;
+  margin: 0 20px;
 }
 
 .avatar {
