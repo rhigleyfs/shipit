@@ -1,8 +1,12 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import styles from './app.module.css';
-import Header from './components/header';
 import 'bulma/css/bulma.css';
+import styles from './app.module.css';
+
+import React from 'react';
+
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import Header from './components/header';
+import SideMenu from './components/sideMenu';
 
 function App() {
   return (
@@ -10,6 +14,7 @@ function App() {
       <main className={styles.container}>
         <Router>
           <Header />
+          <SideMenu />
         </Router>
       </main>
     </section>

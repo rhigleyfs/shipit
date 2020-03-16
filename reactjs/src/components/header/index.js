@@ -1,16 +1,18 @@
-import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import {
-  Dropdown,
-  DropdownTrigger,
-  Icon,
-  DropdownContent,
-  DropdownMenu,
-} from 'bloomer';
-import PropTypes from 'prop-types';
 import styles from './header.module.css';
 
-export default function Header({ loggedIn, user, logout }) {
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import {
+  Dropdown,
+  DropdownContent,
+  DropdownMenu,
+  DropdownTrigger,
+  Icon,
+} from 'bloomer';
+import { Link, useHistory } from 'react-router-dom';
+
+export default function Header({ loggedIn, logout, user }) {
   const history = useHistory();
   const onClickLogout = e => {
     e.preventDefault();
@@ -95,11 +97,11 @@ export default function Header({ loggedIn, user, logout }) {
 
 Header.propTypes = {
   loggedIn: PropTypes.bool,
+  logout: PropTypes.func.isRequired,
   user: PropTypes.shape({
     avatar: PropTypes.string,
     name: PropTypes.string,
   }),
-  logout: PropTypes.func.isRequired,
 };
 Header.defaultProps = {
   loggedIn: true,
