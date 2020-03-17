@@ -4,9 +4,10 @@
 @value sizes: './screenSizes.module.css';
 @value screenSizePhoneSmall, screenSizePhoneMedium, screenSizePhoneLarge, screenSizeDesktopSmall, screenSizeDesktopMedium, screenSizeDesktopLarge from sizes;
 
-.backgroundStars {
+body {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   min-width: 100vh;
   min-height: 100vh;
   background-color: #21252b;
@@ -22,4 +23,14 @@
 
   border: 1px solid border;
   border-radius: borderRadiusLg;
+}
+
+@media screen and (max-width: screenSizePhoneLarge) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+  }
 }

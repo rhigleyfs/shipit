@@ -10,14 +10,16 @@ import SideMenu from './components/sideMenu';
 
 function App() {
   return (
-    <section className={styles.backgroundStars}>
-      <main className={styles.container}>
-        <Router>
-          <Header />
-          <SideMenu />
-        </Router>
-      </main>
+    <Router>
+    <section className={styles.container}>
+      <Header />
+        <main>
+
+
+        </main>
+      <SideMenu />
     </section>
+    </Router>
   );
 }
 
