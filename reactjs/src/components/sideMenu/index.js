@@ -1,6 +1,6 @@
 import styles from './sideMenu.module.css';
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -18,7 +18,17 @@ import {
  } from 'bloomer';
 import { NavLink } from 'react-router-dom';
 
+
+
 export default function SideMenu({ loggedIn, isActive }) {
+  const [menu, setMenu] = useState(isActive);
+
+  const toggleMenu = () => {
+
+    const status = menu === false ? true : false
+    setMenu(status)
+  }
+
   return (
     <Navbar style={{ border: 'solid 1px #00D1B2', margin: '0' }}>
       <NavbarBrand>
@@ -32,9 +42,9 @@ export default function SideMenu({ loggedIn, isActive }) {
           <NavbarItem isHidden='desktop'>
               <Icon className='fa fa-twitter' style={{ color: '#55acee' }} />
           </NavbarItem>
-          <NavbarBurger isActive={isActive} onClick={this.onClickNav} />
+          <NavbarBurger isActive={menu} onClick={toggleMenu} />
       </NavbarBrand>
-      <NavbarMenu isActive={isActive} onClick={this.onClickNav}>
+      <NavbarMenu isActive={menu} onClick={toggleMenu}>
           <NavbarStart>
               <NavbarItem href='#/'>Home</NavbarItem>
               <NavbarItem hasDropdown isHoverable>
@@ -62,8 +72,10 @@ export default function SideMenu({ loggedIn, isActive }) {
 
 SideMenu.propTypes = {
   loggedIn: PropTypes.bool,
+  isActive: PropTypes.bool,
 };
 
 SideMenu.defaultProps = {
   loggedIn: true,
+  isActive: false,
 };
