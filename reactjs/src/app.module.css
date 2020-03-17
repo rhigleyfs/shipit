@@ -1,6 +1,9 @@
 @value brand: './brand.module.css';
 @value border, background, borderRadiusLg from brand;
 
+@value sizes: './screenSizes.module.css';
+@value screenSizePhoneSmall, screenSizePhoneMedium, screenSizePhoneLarge, screenSizeDesktopSmall, screenSizeDesktopMedium, screenSizeDesktopLarge from sizes;
+
 .backgroundStars {
   display: flex;
   justify-content: center;
