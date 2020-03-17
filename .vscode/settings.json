@@ -1,0 +1,10 @@
+{
+  "eslint.enable": true,
+  "cSpell.words": [
+    "bulma",
+    "shipit"
+  ],
+  "eslint.workingDirectories": [
+    "./reactjs"
+  ]
+}
