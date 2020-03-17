@@ -1,0 +1,7 @@
+/* Screen Widths */
+@value screenSizePhoneSmall: 375px;
+@value screenSizePhoneMedium: 415px;
+@value screenSizePhoneLarge: 500px;
+@value screenSizeDesktopSmall: 768px;
+@value screenSizeDesktopMedium: 1024px;
+@value screenSizeDesktopLarge: 1280px;
