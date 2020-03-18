@@ -1,7 +1,11 @@
 @value brand: '../../brand.module.css';
 @value active, dark, border, borderRadiusLg, selected, white, disabled from brand;
 
-@value sideBarWidth: 250px;
+/* @value sideBarWidth: 250px; */
+
+@value sizes: '../../screenSizes.module.css';
+@value screenSizePhoneSmall, screenSizePhoneMedium, screenSizePhoneLarge, screenSizeDesktopSmall, screenSizeDesktopMedium, screenSizeDesktopLarge from sizes;
+
 
 .navbar {
   /* width: sideBarWidth;
@@ -37,4 +41,16 @@
 
 :global .navbar .menu-label {
   color: disabled;
+}
+
+@media screen and (max-width: screenSizeDesktopMedium) {
+
+  .navbar a {
+    color: active;
+  }
+
+  .navbar a:hover {
+    color: black;
+    background: whitesmoke;
+  }
 }
