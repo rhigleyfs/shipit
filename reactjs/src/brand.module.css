@@ -5,7 +5,9 @@
 @value border: #2f363d;
 @value disabled: #9b9c9e;
 @value white: #ffffff;
-@value selected: #73ab84;
+@value selected: #73BF90;
+
+/* 73ab84 */
 
 /* sizes */
 @value borderRadiusLg: 20px;

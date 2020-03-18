@@ -1,31 +1,40 @@
 @value brand: '../../brand.module.css';
-@value dark, border, borderRadiusLg, selected, white, disabled from brand;
+@value active, dark, border, borderRadiusLg, selected, white, disabled from brand;
 
 @value sideBarWidth: 250px;
 
-.menu {
-  width: sideBarWidth;
-  max-width: 25%;
-  height: calc(100% - 107px);
-  padding: 25px;
+.navbar {
+  /* width: sideBarWidth;
+  max-width: 25%; */
+  /* height: calc(100% - 107px); */
+  /* padding: 25px; */
   background-color: dark;
-  border-right: 1px solid border;
-  border-radius: 0 0 0 borderRadiusLg;
+  border: 1px solid border;
+  /* border-radius: 0 0 0 borderRadiusLg; */
 }
 
-:global .menu-list a.is-active {
-  background-color: selected;
+:global .navbar a.is-active {
+  background-color: active;
 }
 
-:global .menu-list a {
+:global .navbar .navbar-item.has-dropdown:hover > a {
+  background: active;
   color: white;
 }
 
-:global .menu-list a:hover {
+:global .navbar .navbar-dropdown a {
+  color: active
+}
+
+:global .navbar a {
+  color: white;
+}
+
+:global .navbar a:hover {
   color: white;
   background-color: selected;
 }
 
-:global .menu-label {
+:global .navbar .menu-label {
   color: disabled;
 }

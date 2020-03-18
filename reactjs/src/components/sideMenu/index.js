@@ -30,12 +30,8 @@ export default function SideMenu({ loggedIn, isActive }) {
   }
 
   return (
-    <Navbar style={{ border: 'solid 1px #00D1B2', margin: '0' }}>
+    <Navbar className={styles.navbar}>
       <NavbarBrand>
-          <NavbarItem>
-              {/* <img src={brand} style={{ marginRight: 5 }} /> */}
-              Bloomer
-          </NavbarItem>
           <NavbarItem isHidden='desktop'>
               <Icon className='fa fa-github' />
           </NavbarItem>
