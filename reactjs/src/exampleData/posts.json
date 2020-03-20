@@ -1,6 +1,6 @@
 [
   {
-    "date": "Thu Apr 16 2020 10:23:12 GMT-0400",
+    "createdAt": "Thu Apr 16 2020 10:23:12 GMT-0400",
     "id": "84e89cc1-5981-44af-87b2-a1518217785d",
     "tags": ["react", "redux"],
     "title": "How to add redux to a react project",
@@ -12,7 +12,7 @@
     ]
   },
   {
-    "date": "Thu Apr 16 2020 10:23:12 GMT-0400",
+    "createdAt": "Thu Apr 16 2020 10:23:12 GMT-0400",
     "id": "5cca3c5c-bb63-4024-98c7-9a4f44760130",
     "tags": ["react", "es6"],
     "title": "Just trying to make this a really long title to see what happens on overflow",
@@ -29,7 +29,7 @@
     ]
   },
   {
-    "date": "Fri Apr 17 2020 10:23:12 GMT-0400",
+    "createdAt": "Fri Apr 17 2020 10:23:12 GMT-0400",
     "id": "5cca3c5c-bb63-4024-98c7-9a4f44760130",
     "tags": ["node", "express"],
     "title": "How does routing work in express?",
@@ -44,7 +44,7 @@
     ]
   },
   {
-    "date": "Wed Apr 15 2020 10:23:12 GMT-0400",
+    "createdAt": "Wed Apr 15 2020 10:23:12 GMT-0400",
     "id": "84e89cc1-5981-44af-87b2-a1518217785d",
     "tags": ["es6", "javascript"],
     "title": "How do you destructure an array?",

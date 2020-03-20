@@ -8,7 +8,7 @@ import { Icon, Tab, TabLink, TabList, Tabs } from 'bloomer';
 import PostList from '../../components/postList';
 import examplePosts from '../../exampleData/posts.json';
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -75,7 +75,7 @@ export default class Home extends Component {
   }
 }
 const postPropTypes = PropTypes.shape({
-  date: PropTypes.object,
+  createdAt: PropTypes.string,
   id: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string,
@@ -112,3 +112,5 @@ Home.defaultProps = {
   fetchPosts: () => {},
   loggedIn: true,
 };
+
+export default Home;

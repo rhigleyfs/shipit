@@ -33,10 +33,10 @@ export default function PostList({ addVote, currentUserId, posts }) {
         <div key={post.id} className={styles.post}>
           <h1 className={styles.title}>{post.title}</h1>
           <h2 className={styles.subTitle}>
-            Posted By:
+            {' Posted By: '}
             {post.username}
             {' on '}
-            {moment(post.date).format('MMMM Do YYYY, h:mm a')}
+            {moment(post.createdAt).format('MMMM Do YYYY, h:mm a')}
           </h2>
           <div>
             {post.tags.map(tag => (
@@ -66,7 +66,7 @@ PostList.propTypes = {
   currentUserId: PropTypes.string,
   posts: PropTypes.arrayOf(
     PropTypes.shape({
-      date: PropTypes.object,
+      createdAt: PropTypes.string,
       id: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.string),
       title: PropTypes.string,

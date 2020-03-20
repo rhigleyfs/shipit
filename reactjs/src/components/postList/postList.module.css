@@ -2,9 +2,7 @@
 @value dark, active, border, selected, disabled from brand;
 
 .list {
-  background-color: dark;
-  border: 1px solid border;
-  border-radius: 10px;
+  composes: box from brand;
 }
 
 .post {
@@ -19,7 +17,6 @@
   composes: title from brand;
   width: 100%;
   height: 1em;
-  margin: 10px 0;
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
