@@ -4,8 +4,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Icon, Tag } from 'bloomer';
-import moment from 'moment';
 import { Link } from 'react-router-dom';
+
+import PostSlugline from '../postSlugline';
 
 export default function PostList({ addVote, currentUserId, posts }) {
   // direction being 1 if up vote and -1 if down vote
@@ -33,12 +34,7 @@ export default function PostList({ addVote, currentUserId, posts }) {
       {posts.map(post => (
         <Link to={`/posts/${post.id}`} key={post.id} className={styles.post}>
           <h1 className={styles.title}>{post.title}</h1>
-          <h2 className={styles.subTitle}>
-            {' Posted By: '}
-            {post.username}
-            {' on '}
-            {moment(post.createdAt).format('MMMM Do YYYY, h:mm a')}
-          </h2>
+          <PostSlugline post={post} />
           <div>
             {post.tags.map(tag => (
               <Tag key={tag}>{`#${tag}`}</Tag>

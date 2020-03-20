@@ -37,11 +37,11 @@
 }
 
 .heading {
+  margin-bottom: 30px;
   color: white;
   font-weight: 600;
   font-size: 32px;
   font-family: 'SF Text', sans-serif;
-  line-height: 14px;
 }
 
 .title {

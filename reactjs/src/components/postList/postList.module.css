@@ -22,12 +22,6 @@
   text-overflow: ellipsis;
 }
 
-.subTitle {
-  composes: subTitle from brand;
-  width: 100%;
-  margin: 10px 0;
-}
-
 .post :global .tag {
   margin-right: 5px;
   color: white;

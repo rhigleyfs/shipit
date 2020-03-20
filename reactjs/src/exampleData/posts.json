@@ -1,11 +1,12 @@
 [
   {
+    "content": "# Redux Basics\n- [Redux Docs](https://redux.org)\n- [Normalizing Redux](https://redux.org)",
     "createdAt": "Thu Apr 16 2020 10:23:12 GMT-0400",
     "id": "84e89cc1-5981-44af-87b2-a1518217785d",
     "tags": ["react", "redux"],
     "title": "How to add redux to a react project",
     "totalVotes": 1,
-    "username": "eMediaLab",
+    "user": { "username": "eMediaLab" },
     "views": 39,
     "votes": [
       { "direction": 1, "userId": "26d5689d-b15b-4a94-a699-44b3e0fdc401" }
@@ -17,7 +18,7 @@
     "tags": ["react", "es6"],
     "title": "Just trying to make this a really long title to see what happens on overflow",
     "totalVotes": 1,
-    "username": "brandonbrown",
+    "user": { "username": "brandonbrown" },
     "views": 49,
     "votes": [
       { "direction": 1, "userId": "4f0a2a9e-1c08-4d22-8586-cbeb369c6e50" },
@@ -34,7 +35,7 @@
     "tags": ["node", "express"],
     "title": "How does routing work in express?",
     "totalVotes": 1,
-    "username": "rhigley",
+    "user": { "username": "rhigley" },
     "views": 13,
     "votes": [
       {
@@ -49,7 +50,7 @@
     "tags": ["es6", "javascript"],
     "title": "How do you destructure an array?",
     "totalVotes": 1,
-    "username": "eMediaLab",
+    "user": { "username": "eMediaLab" },
     "views": 23,
     "votes": [
       { "direction": 1, "userId": "26d5689d-b15b-4a94-a699-44b3e0fdc401" }
