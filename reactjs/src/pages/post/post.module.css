@@ -1,0 +1,10 @@
+@value brand: '../../brand.module.css';
+@value dark, border, white, disabled, selected from brand;
+
+.heading {
+  composes: heading from brand;
+}
+
+.content {
+  composes: box from brand;
+}
