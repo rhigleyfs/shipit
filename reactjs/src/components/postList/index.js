@@ -6,7 +6,13 @@ import PropTypes from 'prop-types';
 import { Icon, Tag } from 'bloomer';
 import moment from 'moment';
 
-export default function PostList({ currentUserId, posts }) {
+export default function PostList({ addVote, currentUserId, posts }) {
+  // direction being 1 if up vote and -1 if down vote
+  const onVoteClick = direction => () => {
+    addVote(direction);
+  };
+
+  // has this user voted?
   const isSelected = (votes, direction) => {
     const vote = votes.find(v => v.userId === currentUserId);
     // the current user voted for this post and this direction
@@ -16,6 +22,11 @@ export default function PostList({ currentUserId, posts }) {
     // the current user did not vote for this post
     return '';
   };
+
+  // calculate the votes based on the array of votes
+  const totalVotes = votes =>
+    votes.map(vote => vote.direction).reduce((a, b) => a + b, 0);
+
   return (
     <div className={styles.list}>
       {posts.map(post => (
@@ -29,14 +40,18 @@ export default function PostList({ currentUserId, posts }) {
           </h2>
           <div>
             {post.tags.map(tag => (
-              <Tag>{`#${tag}`}</Tag>
+              <Tag key={tag}>{`#${tag}`}</Tag>
             ))}
           </div>
           <div className={styles.meta}>
-            <Icon className={`fa fa-arrow-up ${isSelected(post.votes, 1)}`} />
-            {post.totalVotes}
+            <Icon
+              className={`fa fa-arrow-up ${isSelected(post.votes, 1)}`}
+              onClick={onVoteClick(1)}
+            />
+            {totalVotes(post.votes)}
             <Icon
               className={`fa fa-arrow-down ${isSelected(post.votes, -1)}`}
+              onClick={onVoteClick(-1)}
             />
             {`${post.views} Views`}
           </div>
@@ -47,6 +62,7 @@ export default function PostList({ currentUserId, posts }) {
 }
 
 PostList.propTypes = {
+  addVote: PropTypes.func,
   currentUserId: PropTypes.string,
   posts: PropTypes.arrayOf(
     PropTypes.shape({
@@ -54,8 +70,9 @@ PostList.propTypes = {
       id: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.string),
       title: PropTypes.string,
-      totalVotes: PropTypes.number,
-      username: PropTypes.string,
+      user: PropTypes.shape({
+        username: PropTypes.string,
+      }),
       views: PropTypes.number,
       votes: PropTypes.arrayOf(
         PropTypes.shape({
@@ -68,6 +85,7 @@ PostList.propTypes = {
 };
 
 PostList.defaultProps = {
+  addVote: () => {},
   currentUserId: 'ed7586f6-6022-487a-b7f0-404fa3c2da13',
   posts: [],
 };
