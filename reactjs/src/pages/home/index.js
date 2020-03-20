@@ -35,7 +35,6 @@ class Home extends Component {
       fetchPosts({ type: tab });
     };
     const posts = allPosts[activeTab];
-    console.log('posts', posts);
     return (
       <>
         <h1 className={styles.heading}>Top Posts</h1>
@@ -74,29 +73,13 @@ class Home extends Component {
     );
   }
 }
-const postPropTypes = PropTypes.shape({
-  createdAt: PropTypes.string,
-  id: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string,
-  user: PropTypes.shape({
-    username: PropTypes.string,
-  }),
-  views: PropTypes.number,
-  votes: PropTypes.arrayOf(
-    PropTypes.shape({
-      userId: PropTypes.string,
-      vote: PropTypes.number,
-    })
-  ),
-});
 
 Home.propTypes = {
   allPosts: PropTypes.shape({
-    new: PropTypes.arrayOf(postPropTypes),
-    popular: PropTypes.arrayOf(postPropTypes),
-    top: PropTypes.arrayOf(postPropTypes),
-    watching: PropTypes.arrayOf(postPropTypes),
+    new: PropTypes.arrayOf(PropTypes.object),
+    popular: PropTypes.arrayOf(PropTypes.object),
+    top: PropTypes.arrayOf(PropTypes.object),
+    watching: PropTypes.arrayOf(PropTypes.object),
   }),
   fetchPosts: PropTypes.func,
   loggedIn: PropTypes.bool,

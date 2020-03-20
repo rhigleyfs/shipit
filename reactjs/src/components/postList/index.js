@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { Icon, Tag } from 'bloomer';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 export default function PostList({ addVote, currentUserId, posts }) {
   // direction being 1 if up vote and -1 if down vote
@@ -30,7 +31,7 @@ export default function PostList({ addVote, currentUserId, posts }) {
   return (
     <div className={styles.list}>
       {posts.map(post => (
-        <div key={post.id} className={styles.post}>
+        <Link to={`/posts/${post.id}`} key={post.id} className={styles.post}>
           <h1 className={styles.title}>{post.title}</h1>
           <h2 className={styles.subTitle}>
             {' Posted By: '}
@@ -55,7 +56,7 @@ export default function PostList({ addVote, currentUserId, posts }) {
             />
             {`${post.views} Views`}
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
