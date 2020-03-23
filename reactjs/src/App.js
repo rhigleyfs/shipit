@@ -19,7 +19,7 @@ function App() {
           <SideMenu />
           <main className={styles.content}>
             <Route exact path="/" component={Home} />
-            <Route exact path="/posts/:id" component={Post} />
+            <Route exact path="/posts/:postId" component={Post} />
           </main>
         </Router>
       </section>

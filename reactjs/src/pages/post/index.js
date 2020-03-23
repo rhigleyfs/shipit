@@ -14,7 +14,14 @@ import examplePosts from '../../exampleData/posts.json';
 class Post extends React.Component {
   constructor(props) {
     super(props);
+    const {
+      fetchPost,
+      match: {
+        params: { postId },
+      },
+    } = props;
     this.state = { focused: false, newComment: '' };
+    fetchPost(postId);
   }
 
   onSubmit = (e) => {
@@ -93,6 +100,7 @@ Post.propTypes = {
       content: PropTypes.string,
     })
   ),
+  fetchPost: PropTypes.func,
   post: PropTypes.shape({
     commentCount: PropTypes.number,
     content: PropTypes.string,
@@ -134,6 +142,7 @@ Post.defaultProps = {
       userId: '4f0a2a9e-1c08-4d22-8586-cbeb369c6e50',
     },
   ],
+  fetchPost: () => {},
   post: examplePosts[0],
 };
 
