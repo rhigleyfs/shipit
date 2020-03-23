@@ -5,14 +5,18 @@ import PropTypes from 'prop-types';
 
 import ReactMarkdown from 'react-markdown';
 
+import PostSlugline from '../../components/postSlugline';
 import examplePosts from '../../exampleData/posts.json';
 
 function Post({ post }) {
   return (
     <>
       <h1 className={styles.heading}>{post.title}</h1>
-      <article className={styles.content}>
-        <ReactMarkdown source={post.content} />
+      <article className={styles.contentBox}>
+        <PostSlugline post={post} />
+        <div className={styles.content}>
+          <ReactMarkdown source={post.content} />
+        </div>
       </article>
     </>
   );
@@ -20,6 +24,8 @@ function Post({ post }) {
 
 Post.propTypes = {
   post: PropTypes.shape({
+    commentCount: PropTypes.number,
+    content: PropTypes.string,
     createdAt: PropTypes.string,
     id: PropTypes.string,
     tags: PropTypes.arrayOf(PropTypes.string),
@@ -27,7 +33,6 @@ Post.propTypes = {
     user: PropTypes.shape({
       username: PropTypes.string,
     }),
-    views: PropTypes.number,
     votes: PropTypes.arrayOf(
       PropTypes.shape({
         userId: PropTypes.string,
