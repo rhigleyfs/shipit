@@ -1,5 +1,4 @@
 @value brand: '../../brand.module.css';
-@value dark, active, border, selected, disabled from brand;
 
 .list {
   composes: box from brand;
@@ -20,28 +19,4 @@
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.post :global .tag {
-  margin-right: 5px;
-  color: white;
-  background-color: active;
-}
-
-.meta {
-  color: white;
-}
-
-.meta :global .icon svg {
-  color: active;
-  cursor: pointer;
-}
-.meta :global .icon .is-selected {
-  color: selected;
-  cursor: arrow;
-  pointer-events: none;
-}
-.meta :global .icon .is-disabled {
-  color: disabled;
-  pointer-events: none;
 }
