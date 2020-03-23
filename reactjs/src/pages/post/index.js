@@ -3,6 +3,7 @@ import styles from './post.module.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Control, Field, TextArea } from 'bloomer';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
 
@@ -10,32 +11,83 @@ import PostDetails from '../../components/postDetails';
 import PostSlugline from '../../components/postSlugline';
 import examplePosts from '../../exampleData/posts.json';
 
-function Post({ comments, post }) {
-  return (
-    <div className={styles.contentBox}>
-      <article className={styles.post}>
-        <h1 className={styles.heading}>{post.title}</h1>
-        <PostSlugline post={post} />
-        <div className={styles.content}>
-          <ReactMarkdown source={post.content} />
-        </div>
-        <PostDetails post={post} />
-      </article>
-      <h2 className={styles.subTitle}>Comments</h2>
-      {comments.map((comment) => (
-        <div className={styles.comment}>
-          <p>
-            <strong>{comment.User.username}</strong>
-            {` ${moment(comment.createdAt).fromNow()}`}
-          </p>
-          <p className={styles.commentContent}>{comment.content}</p>
-        </div>
-      ))}
-    </div>
-  );
+class Post extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { focused: false, newComment: '' };
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { addComment } = this.props;
+    const { newComment } = this.state;
+    addComment(newComment);
+    this.setState({ focused: false, newComment: '' });
+  };
+
+  handleInputChange = (event) => {
+    // pull the name of the input and value of input out of the event object
+    const {
+      target: { name, value },
+    } = event;
+    // update the state to a key of the name of the input and value of the value of the input
+    // ex: type: 'private'
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  render() {
+    const { comments, post } = this.props;
+    const { focused, newComment } = this.state;
+    return (
+      <div className={styles.contentBox}>
+        <article className={styles.post}>
+          <h1 className={styles.heading}>{post.title}</h1>
+          <PostSlugline post={post} />
+          <div className={styles.content}>
+            <ReactMarkdown source={post.content} />
+          </div>
+          <PostDetails post={post} />
+        </article>
+        <h2 className={styles.subTitle}>Comments</h2>
+        <form onSubmit={this.onSubmit}>
+          <Field>
+            <Control>
+              <TextArea
+                placeholder="Add a comment"
+                className={styles.commentInput}
+                onChange={this.handleInputChange}
+                value={newComment}
+                name="newComment"
+                rows="2"
+                onFocus={() => this.setState({ focused: true })}
+              />
+            </Control>
+          </Field>
+          {focused && (
+            <button type="submit" className={styles.button}>
+              Post Comment
+            </button>
+          )}
+        </form>
+
+        {comments.map((comment) => (
+          <div className={styles.comment} key={comment.id}>
+            <p>
+              <strong>{comment.User.username}</strong>
+              {` ${moment(comment.createdAt).fromNow()}`}
+            </p>
+            <p className={styles.commentContent}>{comment.content}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
 }
 
 Post.propTypes = {
+  addComment: PropTypes.func,
   comments: PropTypes.arrayOf(
     PropTypes.shape({
       content: PropTypes.string,
@@ -61,6 +113,7 @@ Post.propTypes = {
 };
 
 Post.defaultProps = {
+  addComment: () => {},
   comments: [
     {
       content: 'Thanks for all the helpful resources!',
@@ -74,7 +127,7 @@ Post.defaultProps = {
     {
       content: 'These are all awesome links!',
       createdAt: '2020-03-22 10:00:00.000',
-      id: 'b04652f7-07fe-4211-8117-71448bf1a336',
+      id: '06bd9f41-1ded-40ef-bb2b-ac66017bbbae',
       User: {
         username: 'brandonbrown',
       },
