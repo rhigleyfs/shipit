@@ -7,7 +7,7 @@
     "title": "How to add redux to a react project",
     "totalVotes": 1,
     "user": { "username": "eMediaLab" },
-    "views": 39,
+    "commentCount": 39,
     "votes": [
       { "direction": 1, "userId": "26d5689d-b15b-4a94-a699-44b3e0fdc401" }
     ]
@@ -19,7 +19,7 @@
     "title": "Just trying to make this a really long title to see what happens on overflow",
     "totalVotes": 1,
     "user": { "username": "brandonbrown" },
-    "views": 49,
+    "commentCount": 49,
     "votes": [
       { "direction": 1, "userId": "4f0a2a9e-1c08-4d22-8586-cbeb369c6e50" },
 
@@ -36,7 +36,7 @@
     "title": "How does routing work in express?",
     "totalVotes": 1,
     "user": { "username": "rhigley" },
-    "views": 13,
+    "commentCount": 13,
     "votes": [
       {
         "direction": -1,
@@ -51,7 +51,7 @@
     "title": "How do you destructure an array?",
     "totalVotes": 1,
     "user": { "username": "eMediaLab" },
-    "views": 23,
+    "commentCount": 23,
     "votes": [
       { "direction": 1, "userId": "26d5689d-b15b-4a94-a699-44b3e0fdc401" }
     ]
