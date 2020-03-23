@@ -12,11 +12,13 @@ export default function PostList({ posts }) {
   return (
     <div className={styles.list}>
       {posts.map((post) => (
-        <Link to={`/posts/${post.id}`} key={post.id} className={styles.post}>
-          <h1 className={styles.title}>{post.title}</h1>
-          <PostSlugline post={post} />
+        <div className={styles.post}>
+          <Link to={`/posts/${post.id}`} key={post.id}>
+            <h1 className={styles.title}>{post.title}</h1>
+            <PostSlugline post={post} />
+          </Link>
           <PostDetails post={post} />
-        </Link>
+        </div>
       ))}
     </div>
   );
