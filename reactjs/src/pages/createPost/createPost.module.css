@@ -1,0 +1,33 @@
+@value brand: '../../brand.module.css';
+@value dark, border, white, disabled, selected from brand;
+
+.heading {
+  composes: heading from brand;
+}
+
+.createPost button,
+.createPost {
+  color: white;
+}
+
+.createPost :global .editor-toolbar button.active,
+.createPost :global .editor-toolbar button:hover {
+  background-color: selected;
+  border-color: border;
+}
+
+.createPost :global .CodeMirror,
+.createPost :global .editor-toolbar.fullscreen,
+.createPost :global .editor-preview {
+  color: white;
+  background-color: dark;
+}
+
+.createPost :global .editor-toolbar.fullscreen::before,
+.createPost :global .editor-toolbar.fullscreen::after {
+  display: none;
+}
+
+.createPost :global .cm-url {
+  color: @value active from brand;
+}
