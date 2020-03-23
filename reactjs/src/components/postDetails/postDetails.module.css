@@ -1,6 +1,12 @@
 @value brand: '../../brand.module.css';
 @value active, selected, disabled from brand;
 
+.details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .tags :global .tag {
   margin-right: 5px;
   color: white;

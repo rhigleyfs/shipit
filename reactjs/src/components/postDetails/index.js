@@ -29,7 +29,7 @@ function PostDetails({ addVote, currentUserId, post }) {
     votes.map((vote) => vote.direction).reduce((a, b) => a + b, 0);
 
   return (
-    <>
+    <div className={styles.details}>
       <div className={styles.tags}>
         {post.tags.map((tag) => (
           <Link key={tag} to={`/tags/${tag}`}>
@@ -50,7 +50,7 @@ function PostDetails({ addVote, currentUserId, post }) {
         {`  ${post.commentCount}`}
         <Icon className="fa fa-comment" />
       </div>
-    </>
+    </div>
   );
 }
 
