@@ -22,7 +22,8 @@
   color: white;
 }
 
-.panelBlock:global.is-active {
+.panelBlock:global.is-active,
+.panelBlock:global.is-active .panel-icon {
   color: selected
 }
 
