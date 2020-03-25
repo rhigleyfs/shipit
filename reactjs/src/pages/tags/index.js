@@ -48,7 +48,7 @@ class Tags extends Component {
                 <PanelTab>Sources</PanelTab>
                 <PanelTab>Fork</PanelTab>
             </PanelTabs>
-            <PanelBlock isActive className={styles.panelBlock}>
+            <PanelBlock className={styles.panelBlock} isActive>
                 <PanelIcon className="fa fa-book" />
                 Bloomer
             </PanelBlock>

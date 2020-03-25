@@ -15,19 +15,26 @@
 }
 
 .panelBlock:not(:last-child), .panelTabs:not(:last-child) {
-  border-color: border;
+  border-bottom-color: border;
+}
+
+.panelBlock {
+  color: white;
+}
+
+.panelBlock:global.is-active {
+  color: selected
 }
 
 .panelTabs a {
   border-bottom-color: border
 }
 
-/* this .is-active style will not take */
-.panelTabs a.is-active {
-  color: red;
-  border-bottom-color: red
+.panelTabs a:global.is-active {
+  color: selected;
+  border-bottom-color: selected
 }
 
 .panelTabs a:hover {
-  color: green;
+  color: white;
 }
