@@ -63,22 +63,37 @@ class Tags extends Component {
               <PanelBlock className={styles.panelBlock} isActive>
                   <PanelIcon className="fa fa-atom" />
                   React
+                  <Button isSize="small" isColor='success' isOutlined>
+                    Watch
+                  </Button>
               </PanelBlock>
               <PanelBlock className={styles.panelBlock}>
                   <PanelIcon className="fa fa-atlas" />
                   Redux
+                  <Button isSize="small" isColor='success' isOutlined>
+                    Watch
+                  </Button>
               </PanelBlock>
               <PanelBlock className={styles.panelBlock}>
                   <PanelIcon className="fa fa-brain" />
                   Functional Programming
+                  <Button isSize="small" isColor='success' isOutlined>
+                    Watch
+                  </Button>
               </PanelBlock>
               <PanelBlock className={styles.panelBlock}>
                   <PanelIcon className="fa fa-bug" />
                   Unit Testing
+                  <Button isSize="small" isColor='success' isOutlined>
+                    Watch
+                  </Button>
               </PanelBlock>
               <PanelBlock className={styles.panelBlock}>
                   <PanelIcon className="fa fa-adjust" />
                   Continuous Integration
+                  <Button isSize="small" isColor='success' isOutlined>
+                    Watch
+                  </Button>
               </PanelBlock>
               <PanelBlock tag='label' className={styles.panelBlock}>
                   <Checkbox> Remember me</Checkbox>
@@ -100,12 +115,10 @@ class Tags extends Component {
 
 
 Tags.propTypes = {
-  // allPosts: PropTypes.shape({
-  //   new: PropTypes.arrayOf(PropTypes.object),
-  //   popular: PropTypes.arrayOf(PropTypes.object),
-  //   top: PropTypes.arrayOf(PropTypes.object),
-  //   watching: PropTypes.arrayOf(PropTypes.object),
-  // }),
+  allPosts: PropTypes.shape({
+    react: PropTypes.arrayOf(PropTypes.object),
+    redux: PropTypes.arrayOf(PropTypes.object),
+  }),
   fetchPosts: PropTypes.func,
   loggedIn: PropTypes.bool,
 };
