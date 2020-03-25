@@ -8,6 +8,7 @@ import { Container, Panel, PanelHeading, PanelIcon, PanelBlock, Control, Input, 
 
 import PostList from '../../components/postList';
 import examplePosts from '../../exampleData/posts.json';
+import exampleTags from '../../exampleData/tags.json';
 
 
 class Tags extends Component {
@@ -15,6 +16,7 @@ class Tags extends Component {
     super(props);
     this.state = {
       activeTab: '',
+      activeTag: 'React',
     };
   }
 
@@ -38,6 +40,24 @@ class Tags extends Component {
       fetchPosts({ type: tab });
     };
     const posts = allPosts[activeTab];
+
+    const renderTags = exampleTags.map(tag => {
+      // TODO: Add isActive state to <PanelBlock>
+      const detectActive = this.state.activeTag === tag.title ? "is-active" : null
+      console.log("detectActive: ", detectActive)
+      return(
+        <PanelBlock
+          className={[styles.panelBlock, detectActive]}
+
+          >
+            <PanelIcon className={`fa ${tag.icon}`} />
+            {tag.title}
+            <Button isSize="small" isColor='success' isOutlined>
+              Watch
+            </Button>
+        </PanelBlock>
+      )
+    })
     return (
       <>
         <h1 className={styles.heading}>Tags</h1>
@@ -59,41 +79,7 @@ class Tags extends Component {
                   <PanelTab>Popular</PanelTab>
                   <PanelTab>New</PanelTab>
               </PanelTabs>
-              <PanelBlock className={styles.panelBlock} isActive>
-                  <PanelIcon className="fa fa-atom" />
-                  React
-                  <Button isSize="small" isColor='success' isOutlined>
-                    Watch
-                  </Button>
-              </PanelBlock>
-              <PanelBlock className={styles.panelBlock}>
-                  <PanelIcon className="fa fa-atlas" />
-                  Redux
-                  <Button isSize="small" isColor='success' isOutlined>
-                    Watch
-                  </Button>
-              </PanelBlock>
-              <PanelBlock className={styles.panelBlock}>
-                  <PanelIcon className="fa fa-brain" />
-                  Functional Programming
-                  <Button isSize="small" isColor='success' isOutlined>
-                    Watch
-                  </Button>
-              </PanelBlock>
-              <PanelBlock className={styles.panelBlock}>
-                  <PanelIcon className="fa fa-bug" />
-                  Unit Testing
-                  <Button isSize="small" isColor='success' isOutlined>
-                    Watch
-                  </Button>
-              </PanelBlock>
-              <PanelBlock className={styles.panelBlock}>
-                  <PanelIcon className="fa fa-adjust" />
-                  Continuous Integration
-                  <Button isSize="small" isColor='success' isOutlined>
-                    Watch
-                  </Button>
-              </PanelBlock>
+              {renderTags}
               <PanelBlock className={styles.panelBlock}>
                   <Button isSize="small" isOutlined isFullWidth isColor='primary'>Clear Selected</Button>
               </PanelBlock>
