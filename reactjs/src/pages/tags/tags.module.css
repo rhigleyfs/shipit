@@ -49,18 +49,11 @@
 
 .panelTabs a:global.is-active {
   color: selected;
-  border-bottom-color: selected
+  border-bottom-color: selected;
 }
 
 .panelTabs a:hover {
   color: white;
-}
-
-:global Button.button.is-success.is-outlined {
-  visibility: hidden;
-  opacity: 0;
-  margin-left: auto;
-  transition: all .25s;
 }
 
 .panelBlock:global:hover {
@@ -69,7 +62,8 @@
 
 .panelBlock:global:last-child Button.button.is-primary.is-outlined {
   color: disabled;
-  border-color: disabled;
+  border-color: dark;
+  background: border;
 }
 
 .panelBlock:global:last-child Button.button.is-primary.is-outlined:hover {
@@ -78,10 +72,19 @@
   background-color: active;
 }
 
+:global Button.button.is-success.is-outlined {
+  visibility: hidden;
+  opacity: 0;
+  margin-left: auto;
+  transition: all .25s;
+  border-color: active;
+}
+
 .panelBlock:global:hover Button.button.is-success.is-outlined {
   visibility: visible;
   opacity: 1;
-
+  border-color: active;
+  background-color: active;
 }
 
 :global .tagsSection:last-of-type {
