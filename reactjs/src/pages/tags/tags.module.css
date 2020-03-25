@@ -1,5 +1,5 @@
 @value brand: '../../brand.module.css';
-@value dark, border, white, disabled, selected from brand;
+@value active, dark, border, white, disabled, selected from brand;
 
 .heading {
   composes: heading from brand;
@@ -43,7 +43,8 @@
 }
 
 .panelTabs a {
-  border-bottom-color: border
+  border-bottom-color: border;
+  color: active;
 }
 
 .panelTabs a:global.is-active {
@@ -64,6 +65,17 @@
 
 .panelBlock:global:hover {
   cursor: pointer;
+}
+
+.panelBlock:global:last-child Button.button.is-primary.is-outlined {
+  color: disabled;
+  border-color: disabled;
+}
+
+.panelBlock:global:last-child Button.button.is-primary.is-outlined:hover {
+  color: white;
+  border-color: active;
+  background-color: active;
 }
 
 .panelBlock:global:hover Button.button.is-success.is-outlined {

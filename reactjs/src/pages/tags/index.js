@@ -94,11 +94,8 @@ class Tags extends Component {
                     Watch
                   </Button>
               </PanelBlock>
-              <PanelBlock tag='label' className={styles.panelBlock}>
-                  <Checkbox> Remember me</Checkbox>
-              </PanelBlock>
               <PanelBlock className={styles.panelBlock}>
-                  <Button isOutlined isFullWidth isColor='primary'> Reset all filters</Button>
+                  <Button isSize="small" isOutlined isFullWidth isColor='primary'>Clear Selected</Button>
               </PanelBlock>
           </Panel>
         </section>
