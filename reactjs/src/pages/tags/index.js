@@ -49,20 +49,24 @@ class Tags extends Component {
                 <PanelTab>Fork</PanelTab>
             </PanelTabs>
             <PanelBlock className={styles.panelBlock} isActive>
-                <PanelIcon className="fa fa-book" />
-                Bloomer
+                <PanelIcon className="fa fa-atom" />
+                React
             </PanelBlock>
             <PanelBlock className={styles.panelBlock}>
-                <PanelIcon className="fa fa-code-fork" />
-                RxJS
+                <PanelIcon className="fa fa-atlas" />
+                Redux
             </PanelBlock>
             <PanelBlock className={styles.panelBlock}>
-                <PanelIcon className="fa fa-code-fork" />
-                Webpack
+                <PanelIcon className="fa fa-brain" />
+                Functional Programming
             </PanelBlock>
             <PanelBlock className={styles.panelBlock}>
-                <PanelIcon className="fa fa-code-fork" />
-                Typescript
+                <PanelIcon className="fa fa-bug" />
+                Unit Testing
+            </PanelBlock>
+            <PanelBlock className={styles.panelBlock}>
+                <PanelIcon className="fa fa-adjust" />
+                Continuous Integration
             </PanelBlock>
             <PanelBlock tag='label' className={styles.panelBlock}>
                 <Checkbox> Remember me</Checkbox>
