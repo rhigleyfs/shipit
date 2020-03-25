@@ -97,7 +97,7 @@ export default function Header({ loggedIn, logout, user }) {
 
 Header.propTypes = {
   loggedIn: PropTypes.bool,
-  logout: PropTypes.func.isRequired,
+  logout: PropTypes.func,
   user: PropTypes.shape({
     avatar: PropTypes.string,
     name: PropTypes.string,
@@ -105,6 +105,7 @@ Header.propTypes = {
 };
 Header.defaultProps = {
   loggedIn: true,
+  logout: () => {},
   user: {
     avatar: 'https://i.pravatar.cc/100',
   },

@@ -3,20 +3,24 @@ import styles from './app.module.css';
 
 import React from 'react';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/header';
 import SideMenu from './components/sideMenu';
+import Home from './pages/home';
 
 function App() {
   return (
     <section className={styles.backgroundStars}>
-      <main className={styles.container}>
+      <section className={styles.container}>
         <Router>
           <Header />
           <SideMenu />
+          <main className={styles.content}>
+            <Route exact path="/" component={Home} />
+          </main>
         </Router>
-      </main>
+      </section>
     </section>
   );
 }
