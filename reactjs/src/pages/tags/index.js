@@ -55,10 +55,9 @@ class Tags extends Component {
               </PanelBlock>
               <PanelTabs className={styles.panelTabs}>
                   <PanelTab isActive>All</PanelTab>
-                  <PanelTab>Public</PanelTab>
-                  <PanelTab>Private</PanelTab>
-                  <PanelTab>Sources</PanelTab>
-                  <PanelTab>Fork</PanelTab>
+                  <PanelTab>Watching</PanelTab>
+                  <PanelTab>Popular</PanelTab>
+                  <PanelTab>New</PanelTab>
               </PanelTabs>
               <PanelBlock className={styles.panelBlock} isActive>
                   <PanelIcon className="fa fa-atom" />
