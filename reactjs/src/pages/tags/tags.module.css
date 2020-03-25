@@ -61,3 +61,7 @@
 :global .card .content {
   padding-left: 65px;
 }
+
+:global .tagsSection:last-of-type {
+  max-width: 71%;
+}
