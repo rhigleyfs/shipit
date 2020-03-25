@@ -33,13 +33,15 @@ class Tags extends Component {
 
   render() {
 
-    const { activeTab } = this.state;
+    const { activeTag } = this.state;
+    console.log("activeTag: ", activeTag)
     const { allPosts, fetchPosts, loggedIn } = this.props;
     const activateTab = tab => () => {
+      console.log("tab: ", tab)
       this.setState({ activeTab: tab });
       fetchPosts({ type: tab });
     };
-    const posts = allPosts[activeTab];
+    const posts = allPosts[activeTag];
 
     const renderTags = exampleTags.map(tag => {
       // TODO: Add isActive state to <PanelBlock>
@@ -49,7 +51,9 @@ class Tags extends Component {
         <PanelBlock
           key={`panel-${tag.title}`}
           className={[styles.panelBlock, detectActive]}
-          onClick={() => this.setState({ activeTag: tag.title })}
+          onClick={() => {
+            this.setState({ activeTag: tag.title })
+          }}
           >
             <PanelIcon className={`fa ${tag.icon}`} />
             {tag.title}
@@ -87,7 +91,7 @@ class Tags extends Component {
           </Panel>
         </section>
         <section className="tagsSection">
-          <PostList posts={posts} />
+          {posts ? <PostList posts={posts} /> : <h2>Nothing to see here!</h2>}
         </section>
         </Container>
       </>
@@ -108,8 +112,8 @@ Tags.propTypes = {
 
 Tags.defaultProps = {
   allPosts: {
-    react: examplePosts.filter(post => post.tags.includes("react")),
-    redux: examplePosts.filter(post => post.tags.includes("redux")),
+    React: examplePosts.filter(post => post.tags.includes("react")),
+    Redux: examplePosts.filter(post => post.tags.includes("redux")),
   },
   fetchPosts: () => {},
   loggedIn: true,
