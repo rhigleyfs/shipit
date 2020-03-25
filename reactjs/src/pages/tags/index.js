@@ -47,8 +47,9 @@ class Tags extends Component {
       console.log("detectActive: ", detectActive)
       return(
         <PanelBlock
+          key={`panel-${tag.title}`}
           className={[styles.panelBlock, detectActive]}
-
+          onClick={() => this.setState({ activeTag: tag.title })}
           >
             <PanelIcon className={`fa ${tag.icon}`} />
             {tag.title}
