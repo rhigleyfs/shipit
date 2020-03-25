@@ -5,6 +5,20 @@
   composes: heading from brand;
 }
 
+:global .container {
+  display: flex;
+  flex-direction: row;
+}
+
+:global .tagsSection:first-of-type{
+  flex: 1;
+  padding-right: 10px;
+}
+
+:global .tagsSection:last-of-type{
+  flex: 3;
+}
+
 .panel {
   background-color: dark;
 }
@@ -38,4 +52,12 @@
 
 .panelTabs a:hover {
   color: white;
+}
+
+:global .card {
+    margin-bottom: .65rem;
+}
+
+:global .card .content {
+  padding-left: 65px;
 }

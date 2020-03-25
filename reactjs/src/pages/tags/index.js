@@ -4,7 +4,7 @@ import styles from './tags.module.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Panel, PanelHeading, PanelIcon, PanelBlock, Control, Input, PanelTabs, PanelTab, Checkbox, Button, Card, CardHeader, CardHeaderTitle, CardHeaderIcon, Icon, CardImage, Image, CardContent, Media, MediaLeft, MediaContent, Title, Subtitle, Content } from 'bloomer';
+import { Tag, Container, Panel, PanelHeading, PanelIcon, PanelBlock, Control, Input, PanelTabs, PanelTab, Checkbox, Button, Card, CardHeader, CardHeaderTitle, CardHeaderIcon, Icon, CardImage, Image, CardContent, Media, MediaLeft, MediaContent, Title, Subtitle, Content } from 'bloomer';
 
 
 class Tags extends Component {
@@ -30,7 +30,8 @@ class Tags extends Component {
     return (
       <>
         <h1 className={styles.heading}>Tags</h1>
-        <section>
+        <Container>
+        <section className="tagsSection">
           <Panel className={styles.panel}>
             <PanelHeading className={styles.panelHeading}>Discover Topics</PanelHeading>
             <PanelBlock className={styles.panelBlock}>
@@ -76,7 +77,7 @@ class Tags extends Component {
             </PanelBlock>
         </Panel>
       </section>
-        <section>
+        <section className="tagsSection">
         <Card>
           <CardContent>
               <Media>
@@ -84,18 +85,55 @@ class Tags extends Component {
                       <Image isSize='48x48' src='https://via.placeholder.com/96x96' />
                   </MediaLeft>
                   <MediaContent>
-                      <Title isSize={4}>John Wick</Title>
-                      <Subtitle isSize={6}>@John Wick</Subtitle>
+                    <Tag isColor='light'>React</Tag>
+                    <Title isSize={4}>How Do I Get The Thing To Do The Thing With These Things</Title>
                   </MediaContent>
               </Media>
               <Content>
-                  People Keep Asking If I’m Back, And I Haven’t Really Had An Answer, But Now, Yeah, I’m Thinking I’m Back.
+                  I need this to do that, while knowing this, and sharing that.
                   <br/>
-                  <small>11:09 PM - 30 October 2014</small>
+                  <small>11:09 PM - 10 March 2020</small>
+              </Content>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent>
+              <Media>
+                  <MediaLeft>
+                      <Image isSize='48x48' src='https://via.placeholder.com/96x96' />
+                  </MediaLeft>
+                  <MediaContent>
+                    <Tag isColor='light'>React</Tag>
+                    <Title isSize={4}>How Do I Get The Thing To Do The Thing With These Things</Title>
+                  </MediaContent>
+              </Media>
+              <Content>
+                  I need this to do that, while knowing this, and sharing that.
+                  <br/>
+                  <small>11:09 PM - 10 March 2020</small>
+              </Content>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent>
+              <Media>
+                  <MediaLeft>
+                      <Image isSize='48x48' src='https://via.placeholder.com/96x96' />
+                  </MediaLeft>
+                  <MediaContent>
+                    <Tag isColor='light'>React</Tag>
+                    <Title isSize={4}>How Do I Get The Thing To Do The Thing With These Things</Title>
+                  </MediaContent>
+              </Media>
+              <Content>
+                  I need this to do that, while knowing this, and sharing that.
+                  <br/>
+                  <small>11:09 PM - 10 March 2020</small>
               </Content>
           </CardContent>
         </Card>
         </section>
+        </Container>
       </>
     );
   }
