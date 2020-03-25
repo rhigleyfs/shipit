@@ -1,0 +1,27 @@
+@value brand: '../../brand.module.css';
+@value dark, border, white, disabled, selected from brand;
+
+.heading {
+  composes: heading from brand;
+}
+
+.panel {
+  background-color: dark;
+}
+
+.panelHeading {
+  color: disabled;
+  background-color: dark;
+}
+
+.panelBlock:not(:last-child), .panelTabs:not(:last-child) {
+  border-color: border;
+}
+
+.panelTabs a.is-active {
+  color: red !important
+}
+
+.panelTabs a:hover {
+  color: green;
+}
