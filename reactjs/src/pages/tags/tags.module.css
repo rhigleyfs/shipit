@@ -44,7 +44,7 @@
 
 .panelTabs a {
   border-bottom-color: border;
-  color: active;
+  color: white;
 }
 
 .panelTabs a:global.is-active {
@@ -53,7 +53,11 @@
 }
 
 .panelTabs a:hover {
-  color: white;
+  color: active;
+}
+
+.panelTabs a:global.is-active:hover {
+  color: selected;
 }
 
 .panelBlock:global:hover {
@@ -80,11 +84,22 @@
   border-color: active;
 }
 
+.panelBlock:global:hover,
+.panelBlock:global:hover .panel-icon {
+  color: active;
+}
+
+.panelBlock:global.is-active:hover,
+.panelBlock:global.is-active:hover .panel-icon {
+  color: selected;
+}
+
 .panelBlock:global:hover Button.button.is-success.is-outlined {
   visibility: visible;
   opacity: 1;
   border-color: active;
   background-color: active;
+  color: white;
 }
 
 :global .tagsSection:last-of-type {
