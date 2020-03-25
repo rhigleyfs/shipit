@@ -18,8 +18,14 @@
   border-color: border;
 }
 
+.panelTabs a {
+  border-bottom-color: border
+}
+
+/* this .is-active style will not take */
 .panelTabs a.is-active {
-  color: red !important
+  color: red;
+  border-bottom-color: red
 }
 
 .panelTabs a:hover {
