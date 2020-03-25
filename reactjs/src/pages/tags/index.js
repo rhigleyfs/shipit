@@ -4,7 +4,7 @@ import styles from './tags.module.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Tag, Container, Panel, PanelHeading, PanelIcon, PanelBlock, Control, Input, PanelTabs, PanelTab, Checkbox, Button, Card, CardHeader, CardHeaderTitle, CardHeaderIcon, Icon, CardImage, Image, CardContent, Media, MediaLeft, MediaContent, Title, Subtitle, Content } from 'bloomer';
+import { Container, Panel, PanelHeading, PanelIcon, PanelBlock, Control, Input, PanelTabs, PanelTab, Checkbox, Button, Icon} from 'bloomer';
 
 import PostList from '../../components/postList';
 import examplePosts from '../../exampleData/posts.json';
@@ -21,11 +21,11 @@ class Tags extends Component {
   componentDidMount() {
     const { fetchPosts, loggedIn } = this.props;
     if (loggedIn) {
-      this.setState({ activeTab: 'watching' });
-      fetchPosts({ type: 'watching' });
+      this.setState({ activeTab: 'react' });
+      fetchPosts({ type: 'react' });
     } else {
-      this.setState({ activeTab: 'popular' });
-      fetchPosts({ type: 'popular' });
+      this.setState({ activeTab: 'redux' });
+      fetchPosts({ type: 'redux' });
     }
   }
 
@@ -38,7 +38,6 @@ class Tags extends Component {
       fetchPosts({ type: tab });
     };
     const posts = allPosts[activeTab];
-    
     return (
       <>
         <h1 className={styles.heading}>Tags</h1>
@@ -113,10 +112,8 @@ Tags.propTypes = {
 
 Tags.defaultProps = {
   allPosts: {
-    new: examplePosts.slice(3, 4),
-    popular: examplePosts.slice(1, 2),
-    top: examplePosts.slice(2, 3),
-    watching: examplePosts.slice(0, 2),
+    react: examplePosts.filter(post => post.tags.includes("react")),
+    redux: examplePosts.filter(post => post.tags.includes("redux")),
   },
   fetchPosts: () => {},
   loggedIn: true,
