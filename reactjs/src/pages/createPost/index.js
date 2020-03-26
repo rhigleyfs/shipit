@@ -28,7 +28,6 @@ class CreatePost extends Component {
 
   handleAddition = (tag) => {
     const { tags } = this.state;
-    console.log('tag', tag);
     const newTags = [...tags, tag];
     this.setState({ tags: newTags });
   };

@@ -16,22 +16,22 @@
   color: white;
 }
 
-.createPost :global .editorToolbar button.active,
-.createPost :global .editorToolbar button:hover {
+.createPost :global .editor-toolbar button.active,
+.createPost :global .editor-toolbar button:hover {
   background-color: selected;
   border-color: border;
   outline-color: selected;
 }
 
 .createPost :global .CodeMirror,
-.createPost :global .editorToolbar.fullscreen,
+.createPost :global .editor-toolbar.fullscreen,
 .createPost :global .editor-preview {
   color: white;
   background-color: dark;
 }
 
-.createPost :global .editorToolbar.fullscreen::before,
-.createPost :global .editorToolbar.fullscreen::after {
+.createPost :global .editor-toolbar.fullscreen::before,
+.createPost :global .editor-toolbar.fullscreen::after {
   display: none;
 }
 
