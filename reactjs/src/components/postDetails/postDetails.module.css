@@ -7,6 +7,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .tags :global .tag {
   margin-right: 5px;
   color: white;

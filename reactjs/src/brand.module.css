@@ -65,3 +65,38 @@
   border: 1px solid border;
   border-radius: 10px;
 }
+
+.markdown {
+  color: white;
+  font-size: 18px;
+}
+
+.markdown h1 {
+  font-weight: bold;
+  font-size: 26px;
+}
+.markdown h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+.markdown h3 {
+  font-weight: bold;
+  font-size: 20px;
+}
+.markdown h4 {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.markdown ul {
+  padding-left: 20px;
+  list-style: square;
+}
+
+.markdown ol {
+  padding-left: 20px;
+}
+
+.markdown a {
+  color: active;
+}

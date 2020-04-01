@@ -7,7 +7,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/header';
 import SideMenu from './components/sideMenu';
+import CreatePost from './pages/createPost';
 import Home from './pages/home';
+import Post from './pages/post';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <SideMenu />
           <main className={styles.content}>
             <Route exact path="/" component={Home} />
+            <Route exact path="/create-post" component={CreatePost} />
+            <Route exact path="/posts/:postId" component={Post} />
           </main>
         </Router>
       </section>

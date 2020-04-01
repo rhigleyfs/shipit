@@ -28,6 +28,10 @@
     "sort-imports-es6-autofix"
   ],
   "rules": {
+    "react/prop-types": [
+      "error",
+      { "ignore": ["match", "history", "location"] }
+    ],
     "sort-imports-es6-autofix/sort-imports-es6": 0,
     "sort-imports": 0,
     "import/order": 0,
