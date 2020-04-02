@@ -10,6 +10,7 @@ import SideMenu from './components/sideMenu';
 import CreatePost from './pages/createPost';
 import Home from './pages/home';
 import Post from './pages/post';
+import Tag from './pages/tag';
 import Tags from './pages/tags';
 import Users from './pages/users';
 
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/posts/:postId" component={Post} />
             <Route exact path="/users" component={Users} />
             <Route exact path="/tags" component={Tags} />
+            <Route exact path="/tags/:tag" component={Tag} />
           </main>
         </Router>
       </section>

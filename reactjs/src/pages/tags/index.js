@@ -1,122 +1,93 @@
 import styles from './tags.module.css';
 
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Panel, PanelHeading, PanelIcon, PanelBlock, Control, Input, PanelTabs, PanelTab, Checkbox, Button, Icon} from 'bloomer';
+import { Icon } from 'bloomer';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
-import PostList from '../../components/postList';
-import examplePosts from '../../exampleData/posts.json';
-import exampleTags from '../../exampleData/tags.json';
+import tagData from '../../exampleData/tags.json';
 
-
-class Tags extends Component {
+class Users extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: '',
-      activeTag: 'React',
+      searchFilter: '',
     };
   }
 
-  componentDidMount() {
-    const { fetchPosts, loggedIn } = this.props;
-    if (loggedIn) {
-      this.setState({ activeTab: 'react' });
-      fetchPosts({ type: 'react' });
-    } else {
-      this.setState({ activeTab: 'redux' });
-      fetchPosts({ type: 'redux' });
-    }
-  }
+  handleInputChange = (event) => {
+    // pull the name of the input and value of input out of the event object
+    const {
+      target: { name, value },
+    } = event;
+    // update the state to a key of the name of the input and value of the value of the input
+    // ex: type: 'private'
+    this.setState({
+      [name]: value,
+    });
+  };
 
   render() {
+    const { tags } = this.props;
+    const { searchFilter } = this.state;
 
-    const { activeTag } = this.state;
-    console.log("activeTag: ", activeTag)
-    const { allPosts, fetchPosts, loggedIn } = this.props;
-    const activateTab = tab => () => {
-      console.log("tab: ", tab)
-      this.setState({ activeTab: tab });
-      fetchPosts({ type: tab });
-    };
-    const posts = allPosts[activeTag];
+    const filteredTags = tags.filter((tag) => {
+      if (!searchFilter) return true;
+      const search = searchFilter.toLowerCase();
+      return tag.title.toLowerCase().indexOf(search) !== -1;
+    });
 
-    const renderTags = exampleTags.map(tag => {
-      // TODO: Add isActive state to <PanelBlock>
-      const detectActive = this.state.activeTag === tag.title ? "is-active" : null
-      console.log("detectActive: ", detectActive)
-      return(
-        <PanelBlock
-          key={`panel-${tag.title}`}
-          className={[styles.panelBlock, detectActive]}
-          onClick={() => {
-            this.setState({ activeTag: tag.title })
-          }}
-          >
-            <PanelIcon className={`fa ${tag.icon}`} />
-            {tag.title}
-            <Button isSize="small" isColor='success' isOutlined>
-              Watch
-            </Button>
-        </PanelBlock>
-      )
-    })
     return (
       <>
-        <h1 className={styles.heading}>Tags</h1>
-        <Container>
-          <section className="tagsSection">
-            <Panel className={styles.panel}>
-              <PanelHeading className={styles.panelHeading}>Discover Topics</PanelHeading>
-              <PanelBlock className={styles.panelBlock}>
-                  <Control hasIcons='left'>
-                      <Input isSize='small' placeholder='Search' />
-                      <Icon isSize='small' isAlign='left'>
-                          <span className='fa fa-search' aria-hidden='true' />
-                      </Icon>
-                  </Control>
-              </PanelBlock>
-              <PanelTabs className={styles.panelTabs}>
-                  <PanelTab isActive>All</PanelTab>
-                  <PanelTab>Watching</PanelTab>
-                  <PanelTab>Popular</PanelTab>
-                  <PanelTab>New</PanelTab>
-              </PanelTabs>
-              {renderTags}
-              <PanelBlock className={styles.panelBlock}>
-                  <Button isSize="small" isOutlined isFullWidth isColor='primary'>Clear Selected</Button>
-              </PanelBlock>
-          </Panel>
-        </section>
-        <section className="tagsSection">
-          {posts ? <PostList posts={posts} /> : <h2>Nothing to see here!</h2>}
-        </section>
-        </Container>
+        <div className={styles.searchBar}>
+          <img
+            className={styles.searchBarIcon}
+            src="/search_icon.svg"
+            alt="search"
+          />
+          <input
+            className={styles.searchBarInput}
+            name="searchFilter"
+            onChange={this.handleInputChange}
+            placeholder="filter tags"
+          />
+        </div>
+        <div className={styles.tags}>
+          {filteredTags.map((tag) => (
+            <div className={styles.tag} key={tag.id}>
+              <Icon isSize="large" className={`fa ${tag.icon}`} />
+              <span className={styles.data}>
+                <Link
+                  to={`/tags/${tag.title.toLowerCase()}`}
+                  className={styles.tagTitle}
+                >
+                  {tag.title}
+                </Link>
+                <span className={styles.meta}> {tag.count} Posts</span>
+                <span className={styles.meta}>
+                  {`Last post was ${moment(tag.lastPostAt).fromNow()}`}
+                </span>
+              </span>
+            </div>
+          ))}
+        </div>
       </>
     );
   }
 }
-
-
-
-Tags.propTypes = {
-  allPosts: PropTypes.shape({
-    react: PropTypes.arrayOf(PropTypes.object),
-    redux: PropTypes.arrayOf(PropTypes.object),
-  }),
-  fetchPosts: PropTypes.func,
-  loggedIn: PropTypes.bool,
+Users.propTypes = {
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      count: PropTypes.number,
+      icon: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
 };
 
-Tags.defaultProps = {
-  allPosts: {
-    React: examplePosts.filter(post => post.tags.includes("react")),
-    Redux: examplePosts.filter(post => post.tags.includes("redux")),
-  },
-  fetchPosts: () => {},
-  loggedIn: true,
+Users.defaultProps = {
+  tags: tagData,
 };
-
-export default Tags;
+export default Users;

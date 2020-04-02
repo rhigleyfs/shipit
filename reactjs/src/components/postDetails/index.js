@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Icon, Tag } from 'bloomer';
 import { Link } from 'react-router-dom';
 
-function PostDetails({ addVote, currentUserId, post }) {
+function PostDetails({ addVote, currentUserId, loggedIn, post }) {
   // direction being 1 if up vote and -1 if down vote
   const onVoteClick = (direction) => (e) => {
     e.preventDefault();
@@ -15,6 +15,7 @@ function PostDetails({ addVote, currentUserId, post }) {
 
   // has this user voted?
   const isSelected = (votes, direction) => {
+    if (!loggedIn) return 'is-disabled';
     const vote = votes.find((v) => v.userId === currentUserId);
     // the current user voted for this post and this direction
     if (vote && vote.direction === direction) return 'is-selected';
@@ -57,6 +58,7 @@ function PostDetails({ addVote, currentUserId, post }) {
 PostDetails.propTypes = {
   addVote: PropTypes.func,
   currentUserId: PropTypes.string,
+  loggedIn: PropTypes.bool,
   post: PropTypes.shape({
     commentCount: PropTypes.number,
     createdAt: PropTypes.string,
@@ -78,6 +80,7 @@ PostDetails.propTypes = {
 PostDetails.defaultProps = {
   addVote: () => {},
   currentUserId: 'ed7586f6-6022-487a-b7f0-404fa3c2da13',
+  loggedIn: false,
   post: {},
 };
 

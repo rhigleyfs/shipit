@@ -1,107 +1,61 @@
 @value brand: '../../brand.module.css';
-@value active, dark, border, white, disabled, selected from brand;
+@value white, active, background, dark from brand;
 
-.heading {
-  composes: heading from brand;
+.tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
-
-:global .container {
-  /* display: flex;
-  flex-direction: row; */
-}
-
-:global .tagsSection:first-of-type{
-  /* flex: 1; */
-  /* padding-right: 10px; */
-  padding-bottom: 1rem;
-}
-
-:global .tagsSection:last-of-type{
-  /* flex: 3; */
-}
-
-.panel {
-  background-color: dark;
-}
-
-.panelHeading {
-  color: disabled;
-  background-color: dark;
-}
-
-.panelBlock:not(:last-child), .panelTabs:not(:last-child) {
-  border-bottom-color: border;
-}
-
-.panelBlock {
+.tag {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 200px;
+  margin-bottom: 20px;
   color: white;
 }
 
-.panelBlock:global.is-active,
-.panelBlock:global.is-active .panel-icon {
-  color: selected
+.data {
+  width: 160px;
 }
 
-.panelTabs a {
-  border-bottom-color: border;
-  color: white;
-}
-
-.panelTabs a:global.is-active {
-  color: selected;
-  border-bottom-color: selected;
-}
-
-.panelTabs a:hover {
+.data a {
   color: active;
 }
 
-.panelTabs a:global.is-active:hover {
-  color: selected;
+.tagTitle {
+  display: block;
+  font-weight: bold;
 }
 
-.panelBlock:global:hover {
-  cursor: pointer;
+.meta {
+  display: block;
+  font-size: smaller;
 }
 
-.panelBlock:global:last-child Button.button.is-primary.is-outlined {
+.searchBar {
+  margin-bottom: 40px;
+  padding: 10px;
+  vertical-align: middle;
+  background-color: dark;
+}
+.searchBarIcon {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.searchBarInput {
+  width: calc(100% - 35px);
+  height: 100%;
+  color: white;
+  font-weight: normal;
+  font-size: 16px;
+  font-family: 'SF Display', sans-serif;
+  font-style: normal;
+  line-height: 19px;
+  vertical-align: middle;
+  background: none;
+  border: none;
+  outline: none;
+}
+.searchBarInput::placeholder {
   color: disabled;
-  border-color: dark;
-  background: border;
-}
-
-.panelBlock:global:last-child Button.button.is-primary.is-outlined:hover {
-  color: white;
-  border-color: active;
-  background-color: active;
-}
-
-:global Button.button.is-success.is-outlined {
-  visibility: hidden;
-  opacity: 0;
-  margin-left: auto;
-  transition: all .25s;
-  border-color: active;
-}
-
-.panelBlock:global:hover,
-.panelBlock:global:hover .panel-icon {
-  color: active;
-}
-
-.panelBlock:global.is-active:hover,
-.panelBlock:global.is-active:hover .panel-icon {
-  color: selected;
-}
-
-.panelBlock:global:hover Button.button.is-success.is-outlined {
-  visibility: visible;
-  opacity: 1;
-  border-color: active;
-  background-color: active;
-  color: white;
-}
-
-:global .tagsSection:last-of-type {
-  /* max-width: 71%; */
 }

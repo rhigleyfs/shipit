@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { Control, Field, TextArea } from 'bloomer';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
+import { Link } from 'react-router-dom';
 
 import PostDetails from '../../components/postDetails';
 import PostSlugline from '../../components/postSlugline';
@@ -45,7 +46,7 @@ class Post extends React.Component {
   };
 
   render() {
-    const { comments, post } = this.props;
+    const { comments, loggedIn, post } = this.props;
     const { focused, newComment } = this.state;
     return (
       <div className={styles.contentBox}>
@@ -58,26 +59,35 @@ class Post extends React.Component {
           <PostDetails post={post} />
         </article>
         <h2 className={styles.subTitle}>Comments</h2>
-        <form onSubmit={this.onSubmit}>
-          <Field>
-            <Control>
-              <TextArea
-                placeholder="Add a comment"
-                className={styles.commentInput}
-                onChange={this.handleInputChange}
-                value={newComment}
-                name="newComment"
-                rows="2"
-                onFocus={() => this.setState({ focused: true })}
-              />
-            </Control>
-          </Field>
-          {focused && (
-            <button type="submit" className={styles.button}>
-              Post Comment
-            </button>
-          )}
-        </form>
+        {loggedIn && (
+          <form onSubmit={this.onSubmit}>
+            <Field>
+              <Control>
+                <TextArea
+                  placeholder="Add a comment"
+                  className={styles.commentInput}
+                  onChange={this.handleInputChange}
+                  value={newComment}
+                  name="newComment"
+                  rows="2"
+                  onFocus={() => this.setState({ focused: true })}
+                />
+              </Control>
+            </Field>
+            {focused && (
+              <button type="submit" className={styles.button}>
+                Post Comment
+              </button>
+            )}
+          </form>
+        )}
+        {!loggedIn && (
+          <p>
+            <Link to="/login">Login</Link> or
+            <Link to="/signup"> Sign up </Link>
+            to create a comment
+          </p>
+        )}
 
         {comments.map((comment) => (
           <div className={styles.comment} key={comment.id}>
@@ -101,6 +111,7 @@ Post.propTypes = {
     })
   ),
   fetchPost: PropTypes.func,
+  loggedIn: PropTypes.bool,
   post: PropTypes.shape({
     commentCount: PropTypes.number,
     content: PropTypes.string,
@@ -143,6 +154,7 @@ Post.defaultProps = {
     },
   ],
   fetchPost: () => {},
+  loggedIn: false,
   post: examplePosts[0],
 };
 
