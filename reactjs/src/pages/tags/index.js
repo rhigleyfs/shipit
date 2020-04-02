@@ -65,7 +65,7 @@ class Users extends Component {
                 >
                   {tag.title}
                 </Link>
-                <span className={styles.meta}> {tag.count} Posts</span>
+                <span className={styles.meta}>{`${tag.count} Posts`}</span>
                 <span className={styles.meta}>
                   {`Last post was ${moment(tag.lastPostAt).fromNow()}`}
                 </span>

@@ -1,0 +1,35 @@
+@value brand: '../../brand.module.css';
+@value dark, border, white, disabled, selected, background, active from brand;
+
+.profile {
+  color: white;
+  text-align: center;
+}
+
+.avatar {
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.tags {
+  margin-top: 20px;
+}
+
+.tags :global .tag {
+  margin-right: 5px;
+  color: white;
+  background-color: active;
+}
+
+.postsTitle {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  text-align: left;
+}

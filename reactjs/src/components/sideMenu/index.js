@@ -15,7 +15,7 @@ export default class SideMenu extends React.Component {
   }
 
   render() {
-    const { loggedIn, watching } = this.props;
+    const { currentUserId, loggedIn, watching } = this.props;
 
     return (
       <Menu className={styles.menu}>
@@ -42,7 +42,11 @@ export default class SideMenu extends React.Component {
             <MenuLabel>Dashboard</MenuLabel>
             <MenuList>
               <li>
-                <NavLink exact activeClassName="is-active" to="/profile">
+                <NavLink
+                  exact
+                  activeClassName="is-active"
+                  to={`/users/${currentUserId}`}
+                >
                   Profile
                 </NavLink>
               </li>
@@ -79,6 +83,7 @@ export default class SideMenu extends React.Component {
 }
 
 SideMenu.propTypes = {
+  currentUserId: '',
   fetchWatching: PropTypes.func,
   loggedIn: PropTypes.bool,
   watching: PropTypes.arrayOf(
@@ -91,6 +96,7 @@ SideMenu.propTypes = {
 };
 
 SideMenu.defaultProps = {
+  currentUserId: 'ffc6d3db-3e8a-4d18-a18a-d3d8e9d62111',
   fetchWatching: () => {},
   loggedIn: true,
   watching: tagData.slice(3, 10),

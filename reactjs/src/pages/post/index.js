@@ -83,8 +83,9 @@ class Post extends React.Component {
         )}
         {!loggedIn && (
           <p>
-            <Link to="/login">Login</Link> or
-            <Link to="/signup"> Sign up </Link>
+            <Link to="/login">Login</Link>
+            {` or `}
+            <Link to="/signup">Sign up </Link>
             to create a comment
           </p>
         )}
