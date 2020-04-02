@@ -27,8 +27,8 @@ class Profile extends Component {
       <>
         <div className={styles.profile}>
           <Image isSize="64x64" src={user.avatar} className={styles.avatar} />
-          <h1 className={styles.username}>{user.username}</h1>
-          <p className={styles.location}>
+          <h1 className={styles.heading}>{user.username}</h1>
+          <p className={styles.subTitle}>
             {' '}
             {user.city}
             {', '}
@@ -43,7 +43,7 @@ class Profile extends Component {
               </Link>
             ))}
           </p>
-          <h2 className={styles.postsTitle}>
+          <h2 className={styles.title}>
             {user.username}
             &apos;s Posts
           </h2>

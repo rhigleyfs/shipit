@@ -33,8 +33,8 @@ function PostDetails({ addVote, currentUserId, loggedIn, post }) {
     <div className={styles.details}>
       <div className={styles.tags}>
         {post.tags.map((tag) => (
-          <Link key={tag} to={`/tags/${tag}`}>
-            <Tag>{`#${tag}`}</Tag>
+          <Link key={tag.id} to={`/tags/${tag.name.toLowerCase()}`}>
+            <Tag>{`#${tag.name}`}</Tag>
           </Link>
         ))}
       </div>
@@ -63,7 +63,7 @@ PostDetails.propTypes = {
     commentCount: PropTypes.number,
     createdAt: PropTypes.string,
     id: PropTypes.string,
-    tags: PropTypes.arrayOf(PropTypes.string),
+    tags: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string,
     user: PropTypes.shape({
       username: PropTypes.string,
@@ -80,7 +80,7 @@ PostDetails.propTypes = {
 PostDetails.defaultProps = {
   addVote: () => {},
   currentUserId: 'ed7586f6-6022-487a-b7f0-404fa3c2da13',
-  loggedIn: false,
+  loggedIn: true,
   post: {},
 };
 

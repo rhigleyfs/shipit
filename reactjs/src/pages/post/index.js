@@ -118,7 +118,7 @@ Post.propTypes = {
     content: PropTypes.string,
     createdAt: PropTypes.string,
     id: PropTypes.string,
-    tags: PropTypes.arrayOf(PropTypes.string),
+    tags: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string,
     user: PropTypes.shape({
       username: PropTypes.string,
@@ -155,7 +155,7 @@ Post.defaultProps = {
     },
   ],
   fetchPost: () => {},
-  loggedIn: false,
+  loggedIn: true,
   post: examplePosts[0],
 };
 

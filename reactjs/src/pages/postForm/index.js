@@ -1,21 +1,46 @@
 import 'easymde/dist/easymde.min.css';
-import styles from './createPost.module.css';
+import styles from './postForm.module.css';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { Input } from 'bloomer/lib/elements/Form/Input';
 import SimpleMDE from 'react-simplemde-editor';
 import ReactTags from 'react-tag-autocomplete';
+
+import postData from '../../exampleData/posts.json';
+import tagData from '../../exampleData/tags.json';
 
 class CreatePost extends Component {
   constructor(props) {
     super(props);
-    this.state = { content: '', tags: [] };
+    const {
+      fetchPost,
+      match: {
+        params: { postId },
+      },
+    } = this.props;
+    if (postId) {
+      fetchPost(postId);
+    }
+    this.state = {};
   }
 
   handleMarkdownChange = (value) => {
     this.setState({
       content: value,
+    });
+  };
+
+  handleInputChange = (event) => {
+    // pull the name of the input and value of input out of the event object
+    const {
+      target: { name, value },
+    } = event;
+    // update the state to a key of the name of the input and value of the value of the input
+    // ex: type: 'private'
+    this.setState({
+      [name]: value,
     });
   };
 
@@ -27,24 +52,54 @@ class CreatePost extends Component {
   };
 
   handleAddition = (tag) => {
-    const { tags } = this.state;
+    const {
+      post: { tags: defaultTags = [] },
+    } = this.props;
+    const { tags = defaultTags } = this.state;
     const newTags = [...tags, tag];
     this.setState({ tags: newTags });
   };
 
   onSubmit = () => {
-    const { content, tags } = this.state;
-    const { addPost, history } = this.props;
-    addPost({ content, tags });
+    const { content, tags, title } = this.state;
+    const {
+      history,
+      post: { id },
+      savePost,
+    } = this.props;
+    savePost({ content, id, tags, title });
     history.push('/posts');
   };
 
   render() {
-    const { suggestions } = this.props;
-    const { content, tags } = this.state;
+    const {
+      post: {
+        title: defaultTitle = '',
+        content: defaultContent = '',
+        tags: defaultTags = [],
+      },
+      match: {
+        params: { postId },
+      },
+      suggestions,
+    } = this.props;
+    const {
+      title = defaultTitle,
+      content = defaultContent,
+      tags = defaultTags,
+    } = this.state;
     return (
       <div className={styles.createPost}>
-        <h1 className={styles.heading}>Create a New Post</h1>
+        <h1 className={styles.heading}>
+          {postId ? 'Edit Post' : 'Create a New Post'}
+        </h1>
+        <Input
+          className={styles.input}
+          name="title"
+          value={title}
+          onChange={this.handleInputChange}
+          placeholder="Title"
+        />
         <SimpleMDE
           value={content}
           onChange={this.handleMarkdownChange}
@@ -82,7 +137,14 @@ class CreatePost extends Component {
 }
 
 CreatePost.propTypes = {
-  addPost: PropTypes.func,
+  fetchPost: PropTypes.func,
+  post: PropTypes.shape({
+    content: PropTypes.string,
+    id: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.object),
+    title: PropTypes.string,
+  }),
+  savePost: PropTypes.func,
   suggestions: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -92,12 +154,10 @@ CreatePost.propTypes = {
 };
 
 CreatePost.defaultProps = {
-  addPost: () => {},
-  suggestions: [
-    { id: '3a73f9f2-96f5-431f-a9f5-9aa0a55306dc', name: 'redux' },
-    { id: '460b3749-c808-40bb-ba43-9881afe77975', name: 'node' },
-    { id: '9e7a5010-e1a0-42f9-bb9a-23d7ac7e63d3', name: 'react' },
-  ],
+  fetchPost: () => {},
+  post: postData[0],
+  savePost: () => {},
+  suggestions: tagData,
 };
 
 export default CreatePost;

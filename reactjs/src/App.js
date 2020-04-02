@@ -7,9 +7,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/header';
 import SideMenu from './components/sideMenu';
-import CreatePost from './pages/createPost';
 import Home from './pages/home';
 import Post from './pages/post';
+import PostAdmin from './pages/postAdmin';
+import PostForm from './pages/postForm';
 import Profile from './pages/profile';
 import Tag from './pages/tag';
 import Tags from './pages/tags';
@@ -24,8 +25,10 @@ function App() {
           <SideMenu />
           <main className={styles.content}>
             <Route exact path="/" component={Home} />
-            <Route exact path="/create-post" component={CreatePost} />
+            <Route exact path="/create-post" component={PostForm} />
+            <Route exact path="/posts/edit/:postId" component={PostForm} />
             <Route exact path="/posts/:postId" component={Post} />
+            <Route exact path="/posts" component={PostAdmin} />
             <Route exact path="/users" component={Users} />
             <Route exact path="/users/:userId" component={Profile} />
             <Route exact path="/tags" component={Tags} />

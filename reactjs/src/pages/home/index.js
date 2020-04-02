@@ -30,7 +30,7 @@ class Home extends Component {
   render() {
     const { activeTab } = this.state;
     const { allPosts, fetchPosts, loggedIn } = this.props;
-    const activateTab = tab => () => {
+    const activateTab = (tab) => () => {
       this.setState({ activeTab: tab });
       fetchPosts({ type: tab });
     };

@@ -36,7 +36,7 @@ class Users extends Component {
     const filteredTags = tags.filter((tag) => {
       if (!searchFilter) return true;
       const search = searchFilter.toLowerCase();
-      return tag.title.toLowerCase().indexOf(search) !== -1;
+      return tag.name.toLowerCase().indexOf(search) !== -1;
     });
 
     return (
@@ -60,10 +60,10 @@ class Users extends Component {
               <Icon isSize="large" className={`fa ${tag.icon}`} />
               <span className={styles.data}>
                 <Link
-                  to={`/tags/${tag.title.toLowerCase()}`}
+                  to={`/tags/${tag.name.toLowerCase()}`}
                   className={styles.tagTitle}
                 >
-                  {tag.title}
+                  {tag.name}
                 </Link>
                 <span className={styles.meta}>{`${tag.count} Posts`}</span>
                 <span className={styles.meta}>
@@ -82,7 +82,7 @@ Users.propTypes = {
     PropTypes.shape({
       count: PropTypes.number,
       icon: PropTypes.string,
-      title: PropTypes.string,
+      name: PropTypes.string,
     })
   ),
 };
