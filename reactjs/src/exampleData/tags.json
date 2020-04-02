@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Continuous Integration",
+    "icon": "fa-adjust"
+  },
+  {
+    "title": "es6",
+    "icon": "fa-book"
+  },
+  {
+    "title": "Functional Programming",
+    "icon": "fa-brain"
+  },
+  {
+    "title": "React",
+    "icon": "fa-atom"
+  },
+  {
+    "title": "Redux",
+    "icon": "fa-atlas"
+  },
+  {
+    "title": "Unit Testing",
+    "icon" : "fa-bug"
+  }
+]
