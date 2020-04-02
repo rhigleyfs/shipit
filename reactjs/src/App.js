@@ -12,6 +12,7 @@ import Post from './pages/post';
 import PostAdmin from './pages/postAdmin';
 import PostForm from './pages/postForm';
 import Profile from './pages/profile';
+import Settings from './pages/settings';
 import Tag from './pages/tag';
 import Tags from './pages/tags';
 import Users from './pages/users';
@@ -26,6 +27,7 @@ function App() {
           <main className={styles.content}>
             <Route exact path="/" component={Home} />
             <Route exact path="/create-post" component={PostForm} />
+            <Route exact path="/settings" component={Settings} />
             <Route exact path="/posts/edit/:postId" component={PostForm} />
             <Route exact path="/posts/:postId" component={Post} />
             <Route exact path="/posts" component={PostAdmin} />

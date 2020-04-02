@@ -102,3 +102,17 @@
 .markdown a {
   color: active;
 }
+
+.input {
+  margin-bottom: 30px;
+  color: white;
+  background-color: dark;
+  border-color: white;
+}
+
+.input:focus {
+  border-color: active;
+}
+.input::placeholder {
+  color: disabled;
+}
