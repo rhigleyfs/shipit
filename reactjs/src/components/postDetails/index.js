@@ -58,7 +58,7 @@ function PostDetails({ addVote, currentUserId, loggedIn, post }) {
 PostDetails.propTypes = {
   addVote: PropTypes.func,
   currentUserId: PropTypes.string,
-  loggedIn: PropTypes.string,
+  loggedIn: PropTypes.bool,
   post: PropTypes.shape({
     commentCount: PropTypes.number,
     createdAt: PropTypes.string,

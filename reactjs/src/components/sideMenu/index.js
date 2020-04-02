@@ -60,9 +60,8 @@ export default class SideMenu extends React.Component {
             <MenuLabel>Watched Tags</MenuLabel>
             <MenuList>
               {watching.map((tag) => (
-                <li>
+                <li key={tag.id}>
                   <NavLink
-                    key={tag.is}
                     exact
                     activeClassName="is-active"
                     to={`/tags/${tag.title.toLowerCase()}`}
