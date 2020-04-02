@@ -83,8 +83,9 @@ class Post extends React.Component {
         )}
         {!loggedIn && (
           <p>
-            <Link to="/login">Login</Link> or
-            <Link to="/signup"> Sign up </Link>
+            <Link to="/login">Login</Link>
+            {` or `}
+            <Link to="/signup">Sign up </Link>
             to create a comment
           </p>
         )}
@@ -117,7 +118,7 @@ Post.propTypes = {
     content: PropTypes.string,
     createdAt: PropTypes.string,
     id: PropTypes.string,
-    tags: PropTypes.arrayOf(PropTypes.string),
+    tags: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string,
     user: PropTypes.shape({
       username: PropTypes.string,
@@ -154,7 +155,7 @@ Post.defaultProps = {
     },
   ],
   fetchPost: () => {},
-  loggedIn: false,
+  loggedIn: true,
   post: examplePosts[0],
 };
 

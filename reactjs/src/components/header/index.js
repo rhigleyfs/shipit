@@ -14,7 +14,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 export default function Header({ loggedIn, logout, user }) {
   const history = useHistory();
-  const onClickLogout = e => {
+  const onClickLogout = (e) => {
     e.preventDefault();
     logout();
     history.push('/');
@@ -61,7 +61,7 @@ export default function Header({ loggedIn, logout, user }) {
             </DropdownTrigger>
             <DropdownMenu>
               <DropdownContent>
-                <Link to="/profile" className="dropdown-item">
+                <Link to={`/users/${user.id}`} className="dropdown-item">
                   Profile
                 </Link>
                 <Link to="/settings" className="dropdown-item">
@@ -100,6 +100,7 @@ Header.propTypes = {
   logout: PropTypes.func,
   user: PropTypes.shape({
     avatar: PropTypes.string,
+    id: PropTypes.string,
     name: PropTypes.string,
   }),
 };
@@ -108,5 +109,6 @@ Header.defaultProps = {
   logout: () => {},
   user: {
     avatar: 'https://i.pravatar.cc/100',
+    id: 'ffc6d3db-3e8a-4d18-a18a-d3d8e9d62111',
   },
 };

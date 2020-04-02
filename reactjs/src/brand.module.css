@@ -6,12 +6,14 @@
 @value disabled: #9b9c9e;
 @value white: #ffffff;
 @value selected: #73ab84;
+@value destructive: #FF5964;
 
 /* sizes */
 @value borderRadiusLg: 20px;
 
 .button {
   display: inline-block;
+  height: auto;
   padding: 10px 13px;
   color: white;
   font-weight: normal;
