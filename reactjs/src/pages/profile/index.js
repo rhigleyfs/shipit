@@ -38,8 +38,8 @@ class Profile extends Component {
             Watched Tags:
             <br />
             {user.tags.map((tag) => (
-              <Link key={tag} to={`/tags/${tag}`}>
-                <Tag>{`#${tag}`}</Tag>
+              <Link key={tag.id} to={`/tags/${tag.id}`}>
+                <Tag>{`#${tag.name}`}</Tag>
               </Link>
             ))}
           </p>
@@ -61,7 +61,7 @@ Profile.propTypes = {
     avatar: PropTypes.string,
     city: PropTypes.string,
     state: PropTypes.string,
-    tags: PropTypes.arrayOf(PropTypes.string),
+    tags: PropTypes.arrayOf(PropTypes.object),
     username: PropTypes.string,
   }),
 };

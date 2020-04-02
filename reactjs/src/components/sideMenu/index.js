@@ -68,7 +68,7 @@ export default class SideMenu extends React.Component {
                   <NavLink
                     exact
                     activeClassName="is-active"
-                    to={`/tags/${tag.name.toLowerCase()}`}
+                    to={`/tags/${tag.id}`}
                   >
                     {tag.name}
                   </NavLink>

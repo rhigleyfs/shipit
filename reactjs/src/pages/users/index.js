@@ -77,8 +77,8 @@ class Users extends Component {
                 <span className={styles.tags}>
                   {user.tags
                     .map((tag) => (
-                      <Link key={tag} to={`/tags/${tag}`}>
-                        {tag}
+                      <Link key={tag.id} to={`/tags/${tag.id}`}>
+                        {tag.name}
                       </Link>
                     ))
                     .reduce((prev, curr) => [prev, ', ', curr])}
@@ -97,7 +97,7 @@ Users.propTypes = {
       avatar: PropTypes.string,
       city: PropTypes.string,
       state: PropTypes.string,
-      tags: PropTypes.arrayOf(PropTypes.string),
+      tags: PropTypes.arrayOf(PropTypes.object),
       username: PropTypes.string,
     })
   ),

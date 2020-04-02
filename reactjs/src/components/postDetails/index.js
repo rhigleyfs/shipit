@@ -33,7 +33,7 @@ function PostDetails({ addVote, currentUserId, loggedIn, post }) {
     <div className={styles.details}>
       <div className={styles.tags}>
         {post.tags.map((tag) => (
-          <Link key={tag.id} to={`/tags/${tag.name.toLowerCase()}`}>
+          <Link key={tag.id} to={`/tags/${tag.id}`}>
             <Tag>{`#${tag.name}`}</Tag>
           </Link>
         ))}

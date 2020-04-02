@@ -59,10 +59,7 @@ class Users extends Component {
             <div className={styles.tag} key={tag.id}>
               <Icon isSize="large" className={`fa ${tag.icon}`} />
               <span className={styles.data}>
-                <Link
-                  to={`/tags/${tag.name.toLowerCase()}`}
-                  className={styles.tagTitle}
-                >
+                <Link to={`/tags/${tag.id}`} className={styles.tagTitle}>
                   {tag.name}
                 </Link>
                 <span className={styles.meta}>{`${tag.count} Posts`}</span>
