@@ -32,7 +32,7 @@ function App() {
             <Route exact path="/users" component={Users} />
             <Route exact path="/users/:userId" component={Profile} />
             <Route exact path="/tags" component={Tags} />
-            <Route exact path="/tags/:tag" component={Tag} />
+            <Route exact path="/tags/:tagId" component={Tag} />
           </main>
         </Router>
       </section>
