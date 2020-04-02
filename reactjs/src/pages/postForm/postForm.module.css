@@ -10,19 +10,8 @@
   float: right;
   margin-top: 20px;
 }
-
 .input {
-  margin-bottom: 30px;
-  color: white;
-  background-color: dark;
-  border-color: white;
-}
-
-.input:focus {
-  border-color: activeCol;
-}
-.input::placeholder {
-  color: disabled;
+  composes: input from brand;
 }
 .createPost button,
 .createPost {
