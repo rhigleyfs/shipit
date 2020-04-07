@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/header';
 import SideMenu from './components/sideMenu';
 import Home from './pages/home';
+import Join from './pages/join';
+import Login from './pages/login';
 import Post from './pages/post';
 import PostAdmin from './pages/postAdmin';
 import PostForm from './pages/postForm';
@@ -28,6 +30,8 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/create-post" component={PostForm} />
             <Route exact path="/settings" component={Settings} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/join" component={Join} />
             <Route exact path="/posts/edit/:postId" component={PostForm} />
             <Route exact path="/posts/:postId" component={Post} />
             <Route exact path="/posts" component={PostAdmin} />
