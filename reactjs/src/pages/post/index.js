@@ -27,9 +27,12 @@ class Post extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { addComment } = this.props;
+    const {
+      addComment,
+      post: { id },
+    } = this.props;
     const { newComment } = this.state;
-    addComment(newComment);
+    addComment({ postId: id, text: newComment });
     this.setState({ focused: false, newComment: '' });
   };
 
