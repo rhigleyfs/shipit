@@ -10,7 +10,7 @@ function PostDetails({ addVote, currentUserId, loggedIn, post }) {
   // direction being 1 if up vote and -1 if down vote
   const onVoteClick = (direction) => (e) => {
     e.preventDefault();
-    addVote(direction);
+    addVote({ direction, postId: post.id });
   };
 
   // has this user voted?
